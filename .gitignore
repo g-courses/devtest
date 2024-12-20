@@ -15,3 +15,4 @@ docker-compose.yml
 .devcontainer*
 .pnpm-store
 /www
+.devcontainer.json
