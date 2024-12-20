@@ -2,7 +2,7 @@
 	"name": "inf214-uv",	
 	"image":"gastudil/courses:jappy-vscode",
 	"runArgs": [
-        "--platform","linux/amd64",
+        "--platform","linux/arm64",
 		"--init",
 		"--rm",
 		"--hostname", "inf214-uv",

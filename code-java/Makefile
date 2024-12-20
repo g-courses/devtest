@@ -1,4 +1,4 @@
-SRC = ColoresAzar.java
+SRC = HelloWorldFrame.java
 
 JC = javac
 JVM = java
