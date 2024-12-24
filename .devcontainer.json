@@ -2,7 +2,7 @@
 	"name": "inf214-uv",	
 	"image":"gastudil/courses:jappy-vscode",
 	"runArgs": [
-        "--platform","linux/arm64",
+        "--platform","linux/amd64",
 		"--init",
 		"--rm",
 		"--hostname", "inf214-uv",
@@ -12,10 +12,7 @@
 	  
 	// Permite sobrescribir el ENTRYPOINT
 	"overrideCommand": false, 
-	"command": "/bin/sh -c 'sudo /usr/local/bin/jupyter notebook  --ip='*' --NotebookApp.token='' --NotebookApp.password='' --allow-root'", 
-  
-	//"workspaceMount": "source=${localWorkspaceFolder},target=/home/devuser/workspace/${localWorkspaceFolderBasename},type=bind,consistency=consistent",
-	//"workspaceFolder": "/home/devuser/workspace",
+   	"command":"/usr/bin/supervisord -c /etc/supervisord.conf",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/home/devuser/workspace/${localWorkspaceFolderBasename},type=bind,consistency=consistent",
 	"workspaceFolder": "/home/devuser/workspace/",
 	
@@ -38,7 +35,7 @@
 	"customizations": {
 	        "vscode": {
 				"settings": {
-					//"extensions.ignoreRecommendations": true,
+					"extensions.ignoreRecommendations": true,
 					//"editor.inlineSuggest.enabled": false,
 					//"editor.inlineSuggest.showToolbar": "never",
 					//"editor.quickSuggestions": {
@@ -72,18 +69,28 @@
 				},
 				"extensions": [
 					// Incluidas en la imagen					
-					"ms-python.python",
-					"ms-toolsai.jupyter",
-					"ms-vscode.cpptools-extension-pack",
-					"lfm.vscode-makefile-term",
-					"ms-vscode.makefile-tools",
-					"redhat.java",
-					"ms-toolsai.datawrangler",
-					"jebbs.plantuml",
-					"bbenoist.Doxygen",
-					"cschlosser.doxdocgen",
-					"betwo.vscode-doxygen-runner",
-					"hediet.vscode-drawio"
+                    "ms-python.python",
+                    "ms-python.vscode-pylance",
+                    "ms-python.debugpy",
+                    "ms-toolsai.jupyter",
+                    "ms-toolsai.vscode-jupyter-cell-tags",
+                    "ms-toolsai.vscode-jupyter-slideshow",
+                    "ms-toolsai.jupyter-keymap",
+                    "ms-toolsai.jupyter-renderers",
+                    "ms-vscode.cpptools-extension-pack",
+                    "lfm.vscode-makefile-term",
+                    "ms-vscode.makefile-tools",
+                    "ms-vscode.cpptools",
+                    "ms-vscode.cpptools-themes",
+                    "ms-vscode.cmake-tools",
+                    "twxs.cmake",
+                    "redhat.java",
+                    "ms-toolsai.datawrangler",
+                    "jebbs.plantuml",
+                    "bbenoist.Doxygen",
+                    "cschlosser.doxdocgen",
+                    "betwo.vscode-doxygen-runner",
+                    "hediet.vscode-drawio"
 					// Incluya las extensiones sus extensiones a continuacion
 				]
 	        }
@@ -91,4 +98,3 @@
 
 	"remoteUser": "devuser"
 }
-
